@@ -8,4 +8,4 @@ la implementación de archivos y memoria dinámica.
 
 Para más detalles, leer el Reporte del proyecto final, ahí está todo más específico.
 
-Para correr el programa es necesario tener todos los archivos aquí en una sola carpeta, todos juntos sin que haya carpetas o archivos .zip o .rar de por medio.
+Para correr el programa en tu computadora es necesario tener todos los archivos estén en una sola carpeta, con la misma organización que se tiene aqui en GitHub.
