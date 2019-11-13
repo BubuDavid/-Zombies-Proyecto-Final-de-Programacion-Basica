@@ -68,7 +68,7 @@ int main()
 
                 //Este system("cls") indica que se limpiará la pantalla al comienzo de cada nuevo ciclo del programa.
                 //Todos los system("cls") y system("pause") son simplemente por estética.
-                system("cls");
+                clear();
 
                 //Igualación de datos.
                 sum = 0;
@@ -86,7 +86,7 @@ int main()
 
                 scanf("%d", &menu);
 
-                system("cls");
+                clear();
 
                 //En esta sección se ejecuta el código correspondiente a lo que el usuario introdujo.
                 switch(menu) {
@@ -114,7 +114,7 @@ int main()
 
                 if (ciclo == 0) {
                         //Ahora le tenemos que mostrar al usuario el caso que seleccionó para que lo pueda analizar bien.
-                        system("cls");
+                        clear();
 
                         ciudades = (int)mapad[0][0] + 1; //Aquí recuperamos el número de ciudades que hay en total, el "+ 1" es porque la cuenta inició en -1.
                         //El cast es porque la variable mapad[0][0] es un double.
@@ -132,7 +132,7 @@ int main()
 
                         //Aquí se indica que si el caso es aleatorio, el usuario puede guardarlo en la carpeta de Usuario.
                         if(menu == 4) {
-                                system("cls");
+                                clear();
                                 printf("Escriba:\n1.Si desea guardar este caso en la carpeta \"Usuario\"\nSi no, cualquier otro numero.\n");
                                 scanf("%d", &menu); //Escogí esta variable para no crear una nueva, fue arbitrario.
                                 if(menu == 1) {
@@ -158,7 +158,7 @@ int main()
                                 }
                         }
 
-                        system("cls");
+                        clear();
 
                         printf("Despues de %lf horas hay %d Ciudades infectadas:\n", k, sum);
 
@@ -184,7 +184,7 @@ int main()
                                 }
                         }
 
-                        system("cls");
+                        clear();
 
                         //Imprimimos lo que el señor presidente quiere, en este caso el número de ciudades que se salvaron es:
                         //El número de ciudades totales menos las ciudades que se infectaron, es decir "ciudades - sum".
@@ -207,7 +207,7 @@ int main()
                         //presidente en ese caso habrá que imprimirlo, sino entonces el presidente o está a salvo o está en un oceano.
                         //Y también hay que imprimirlo.
 
-                        system("cls");
+                        clear();
 
                         if (mapa[x][y] == '#') { //Esto checa si puede haber zombies en la posición actual del presidente.
                                 printf("Si el presidente se queda ahi, entonces los zombies lo alcanzaran en %lf horas.\n", mapad[x][y]);
@@ -221,7 +221,7 @@ int main()
 
                         system("pause");
 
-                        system("cls");
+                        clear();
 
 
                         //----------------------------------------------Tarea 4----------------------------------------------//
@@ -262,7 +262,7 @@ int main()
                         }
 
                         system("pause");
-                        system("cls");
+                        clear();
                         printf("Escriba:\n1.Si quiere hacer otro test.\nCualquier otro numero.Si quiere terminar el programa.\n");
                         scanf("%d", &ciclo);
                         //Al final se libera la memoria de las matrices para posteriormente volverla a usar si fuese necesario.
@@ -343,7 +343,7 @@ int Manual(int *n, int *m, int *x, int *y, double *z, double *a, double *k)
         char direccion[50], aux[50];
 
         //Pidiendo datos.
-        system("cls");
+        clear();
         printf("Ingrese el tamano de filas de su mapa-matriz:\n");
         scanf("%d", n);
         printf("Ingrese el tamano de columnas de su mapa-matriz:\n");
@@ -571,7 +571,7 @@ int Aleatorio(int *n, int *m, int *x, int *y, double *z, double *a, double *k)
         //Esta función nos permite general números lo más aleatorio posibles, enteros positivos claro.
         srand(time(NULL));
 
-        system("cls");
+        clear();
         printf("Por favor, escriba el limite inferior del randomizador, es decir, cual es el numero minimo que pueden tener las variables:\n(Tiene que ser minimo 1)\n");
         scanf("%d", &r);
         printf("Ahora por favor, escriba el limite superior:\n(Tiene que ser maximo 100)\n");
@@ -654,7 +654,7 @@ int Save(int *n, int *m, int *x, int *y, double *z, double *a, double *k)
 
         while(1) { //Es un ciclo por si es que el usuario introduce un nombre ya existente
 
-                system("cls");
+                clear();
                 //Después de tener todos los datos ahora tenemos que guardar el caso.
                 printf("Ahora ingrese el nombre con el que desea guardar su caso.\nRecuerde que su nombre no tiene que sobrepasar los 30 caracteres y que estara en la carpeta \"Usuario\"");
                 printf("\nNo es necesaria la extension .txt y no puede llevar espacios.\n");
@@ -708,7 +708,7 @@ int Save(int *n, int *m, int *x, int *y, double *z, double *a, double *k)
 
         fprintf(fd, "%d %d\n%lf %lf\n%lf", *x, *y, *z, *a, *k);
 
-        system("cls");
+        clear();
 
         printf("Tu caso fue guardado con exito.\n");
 
@@ -719,12 +719,13 @@ int Save(int *n, int *m, int *x, int *y, double *z, double *a, double *k)
         return 0;
 }
 
-void clear(){
+void clear()
+{
     #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
         system("clear");
     #endif
 
     #if defined(_WIN32) || defined(_WIN64)
-        system("cls");
+        clear();
     #endif
 }
