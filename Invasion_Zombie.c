@@ -661,7 +661,7 @@ int Save(int *n, int *m, int *x, int *y, double *z, double *a, double *k)
 
                 char direccion2[50] = "Usuario\\"; //Creamos un string nuevo que nos va a "auxiliar" creandose y destruyendose en cada iteración.
                 //Empezamos a "armar" la dirección del archivo.
-                scanf("%s", aux); //Pedimos el nombre del archivo.
+                scanf("%49s", aux); //Pedimos el nombre del archivo.
 
                 strcat(direccion2, aux);
                 strcat(direccion2, ".txt"); //Le agregamos .txt para que sea de tipo texto.
