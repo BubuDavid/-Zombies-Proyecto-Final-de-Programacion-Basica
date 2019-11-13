@@ -20,9 +20,14 @@ void ImprimeMapa(int, int);
 
 void Expansion_Zombie(int, int, int, int, double, double, double, int*);
 
+void clear();
+
 //FIXME: No usar typedef en las estructuras
-typedef struct { //Se crea una estructura para poder guardar la posición del presidente y la mínima de tiempo para llegar
-          //a un lugar seguro. Todo eso compactado en un tipo de variable llamado Presi.
+typedef struct {
+//Se crea una estructura para poder guardar la posición del
+        //presidente y la mínima de tiempo para llegar
+        //a un lugar seguro. Todo eso compactado en un tipo de variable
+        //llamado Presi.
         double m;
         int x; //Guarda la posición en x.
         int y; //Guarda la posición en y.
@@ -32,10 +37,14 @@ void Expansion_Presidencial(int, int, int, int, double, double, Presi*);
 
 int Aleatorio(int*, int*, int*, int*, double*, double*, double*);
 
-//Se tuvo que hacer a la variable "mapa" una variable global ya que fue la única manera que encontramos de
-//hacer que el programa funcionara, ya que si la hacíamos local teníamos que pasarla a las demás funciones
-//como un parámetro y dentro de esas "llamadas" como parámetro ocurrían varios errores de los cuales descono-
-//cíamos la solución, así que la única manera que se nos ocurrió de resolver esto fue haciéndola global y al
+//Se tuvo que hacer a la variable "mapa" una variable global ya que fue
+//la única manera que encontramos de
+//hacer que el programa funcionara, ya que si la hacíamos local teníamos
+//que pasarla a las demás funciones
+//como un parámetro y dentro de esas "llamadas" como parámetro ocurrían
+//varios errores de los cuales descono-
+//cíamos la solución, así que la única manera que se nos ocurrió de
+//resolver esto fue haciéndola global y al
 //parecer funcionó.
 //Lo mismo es para "mapaint".
 char **mapa;
@@ -43,7 +52,7 @@ double **mapad;
 
 int main()
 {
-//------------------Inicio del programa, donde todo es declarado y donde se decidirá que hacer------------------//
+//----------Inicio del programa, donde todo es declarado y donde se decidirá que hacer--------//
 
         //Declaración de variables.
         int menu;
@@ -708,4 +717,14 @@ int Save(int *n, int *m, int *x, int *y, double *z, double *a, double *k)
         fclose(fd);
 
         return 0;
+}
+
+void clear(){
+    #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
+        system("clear");
+    #endif
+
+    #if defined(_WIN32) || defined(_WIN64)
+        system("cls");
+    #endif
 }
